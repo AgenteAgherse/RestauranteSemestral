@@ -35,19 +35,19 @@ public class Acceso extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Bienvenido/a *Inserte Nombre del Usuario*");
 
         Salir.setBackground(new java.awt.Color(0, 0, 0));
         Salir.setFont(new java.awt.Font("Microsoft YaHei", 0, 12)); // NOI18N
-        Salir.setForeground(new java.awt.Color(204, 204, 204));
-        Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/images/start/chain_end_25px.png"))); // NOI18N
+        Salir.setForeground(new java.awt.Color(51, 51, 51));
+        Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/images/start/chain_end_30px.png"))); // NOI18N
         Salir.setText("Salir");
-        Salir.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        Salir.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
         Salir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SalirMouseClicked(evt);

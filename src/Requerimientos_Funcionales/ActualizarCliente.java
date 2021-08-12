@@ -152,7 +152,7 @@ public class ActualizarCliente extends javax.swing.JPanel {
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/images/add client/coughing_20px.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/images/add client/microorganisms_20px.png"))); // NOI18N
 
         Alergias.setBackground(new java.awt.Color(0, 0, 0));
         Alergias.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 14)); // NOI18N
