@@ -31,19 +31,20 @@ public class Crear extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        Usuario = new javax.swing.JTextField();
-        Contraseña = new javax.swing.JTextField();
-        NombreUsuario = new javax.swing.JTextField();
+        fondoResto1 = new restaurante.FondoResto();
         jComboBox1 = new javax.swing.JComboBox<>();
         Hombre = new javax.swing.JRadioButton();
         Mujer = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        Usuario = new javax.swing.JTextField();
+        Contraseña = new javax.swing.JTextField();
+        NombreUsuario = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -51,12 +52,53 @@ public class Crear extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
+        jComboBox1.setBackground(new java.awt.Color(246, 246, 246));
+        jComboBox1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 14)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(51, 51, 51));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Cargo 1", "Cargo 2", "Cargo 3", "Cargo 4", "Cargo 5" }));
+        jComboBox1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
+        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseExited(evt);
+            }
+        });
+
+        Hombre.setBackground(new java.awt.Color(246, 246, 246));
+        Hombre.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 10)); // NOI18N
+        Hombre.setForeground(new java.awt.Color(51, 51, 51));
+        Hombre.setSelected(true);
+        Hombre.setText("Hombre");
+        Hombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HombreActionPerformed(evt);
+            }
+        });
+
+        Mujer.setBackground(new java.awt.Color(246, 246, 246));
+        Mujer.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 10)); // NOI18N
+        Mujer.setForeground(new java.awt.Color(51, 51, 51));
+        Mujer.setText("Mujer");
+        Mujer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MujerActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/images/create user/password_20px.png"))); // NOI18N
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/images/common/user_20px.png"))); // NOI18N
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/images/common/drag_gender_neutral_20px.png"))); // NOI18N
+
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/images/start/chain_end_25px.png"))); // NOI18N
         jLabel1.setText("Cancelar");
-        jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -69,12 +111,14 @@ public class Crear extends javax.swing.JDialog {
             }
         });
 
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/images/create user/work_20px.png"))); // NOI18N
+
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Microsoft YaHei", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/images/create user/add_30px.png"))); // NOI18N
         jLabel2.setText("Agregar");
-        jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
@@ -87,11 +131,13 @@ public class Crear extends javax.swing.JDialog {
             }
         });
 
-        Usuario.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/images/common/identification_documents_20px.png"))); // NOI18N
+
+        Usuario.setBackground(new java.awt.Color(246, 246, 246));
         Usuario.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 14)); // NOI18N
-        Usuario.setForeground(new java.awt.Color(153, 153, 153));
+        Usuario.setForeground(new java.awt.Color(51, 51, 51));
         Usuario.setText("Nombre Usuario");
-        Usuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        Usuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         Usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 UsuarioMouseClicked(evt);
@@ -114,11 +160,11 @@ public class Crear extends javax.swing.JDialog {
             }
         });
 
-        Contraseña.setBackground(new java.awt.Color(0, 0, 0));
+        Contraseña.setBackground(new java.awt.Color(246, 246, 246));
         Contraseña.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 14)); // NOI18N
-        Contraseña.setForeground(new java.awt.Color(153, 153, 153));
+        Contraseña.setForeground(new java.awt.Color(51, 51, 51));
         Contraseña.setText("Asignar Contraseña");
-        Contraseña.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        Contraseña.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         Contraseña.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ContraseñaMouseClicked(evt);
@@ -136,11 +182,11 @@ public class Crear extends javax.swing.JDialog {
             }
         });
 
-        NombreUsuario.setBackground(new java.awt.Color(0, 0, 0));
+        NombreUsuario.setBackground(new java.awt.Color(246, 246, 246));
         NombreUsuario.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 14)); // NOI18N
-        NombreUsuario.setForeground(new java.awt.Color(153, 153, 153));
+        NombreUsuario.setForeground(new java.awt.Color(51, 51, 51));
         NombreUsuario.setText("Asignar Nombre");
-        NombreUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        NombreUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         NombreUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 NombreUsuarioMouseClicked(evt);
@@ -158,116 +204,84 @@ public class Crear extends javax.swing.JDialog {
             }
         });
 
-        jComboBox1.setBackground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(153, 153, 153));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Cargo 1", "Cargo 2", "Cargo 3", "Cargo 4", "Cargo 5" }));
-        jComboBox1.setBorder(new javax.swing.border.MatteBorder(null));
-        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jComboBox1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jComboBox1MouseExited(evt);
-            }
-        });
-
-        Hombre.setBackground(new java.awt.Color(0, 0, 0));
-        Hombre.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 10)); // NOI18N
-        Hombre.setForeground(new java.awt.Color(255, 255, 255));
-        Hombre.setSelected(true);
-        Hombre.setText("Hombre");
-        Hombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HombreActionPerformed(evt);
-            }
-        });
-
-        Mujer.setBackground(new java.awt.Color(0, 0, 0));
-        Mujer.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 10)); // NOI18N
-        Mujer.setForeground(new java.awt.Color(255, 255, 255));
-        Mujer.setText("Mujer");
-        Mujer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MujerActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/images/create user/password_20px.png"))); // NOI18N
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/images/common/user_20px.png"))); // NOI18N
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/images/common/drag_gender_neutral_20px.png"))); // NOI18N
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/images/create user/work_20px.png"))); // NOI18N
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/images/common/identification_documents_20px.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+        javax.swing.GroupLayout fondoResto1Layout = new javax.swing.GroupLayout(fondoResto1);
+        fondoResto1.setLayout(fondoResto1Layout);
+        fondoResto1Layout.setHorizontalGroup(
+            fondoResto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoResto1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(fondoResto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(fondoResto1Layout.createSequentialGroup()
+                        .addGroup(fondoResto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(NombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(fondoResto1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(fondoResto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoResto1Layout.createSequentialGroup()
+                        .addGroup(fondoResto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(fondoResto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(fondoResto1Layout.createSequentialGroup()
                                 .addComponent(Hombre)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Mujer))
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(fondoResto1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)))
-                .addGap(31, 31, 31))
+                .addGap(42, 42, 42))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        fondoResto1Layout.setVerticalGroup(
+            fondoResto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoResto1Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(fondoResto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoResto1Layout.createSequentialGroup()
+                        .addGroup(fondoResto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Hombre)
                             .addComponent(Mujer))
                         .addGap(20, 20, 20)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(fondoResto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(fondoResto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel7)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(fondoResto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jLabel6)
                     .addComponent(jLabel5))
                 .addGap(23, 23, 23)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(fondoResto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(NombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(fondoResto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
                         .addComponent(jLabel1))
                     .addComponent(jLabel8))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(fondoResto1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(fondoResto1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -284,17 +298,65 @@ public class Crear extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        dispose();
-    }//GEN-LAST:event_jLabel1MouseClicked
+    private void NombreUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NombreUsuarioKeyTyped
+        if (NombreUsuario.getText().equals("Asignar Nombre")) NombreUsuario.setText("");
+    }//GEN-LAST:event_NombreUsuarioKeyTyped
 
-    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
-        jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-    }//GEN-LAST:event_jLabel1MouseEntered
+    private void NombreUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NombreUsuarioMouseExited
+        setClaro(NombreUsuario);
+    }//GEN-LAST:event_NombreUsuarioMouseExited
 
-    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
-        jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-    }//GEN-LAST:event_jLabel1MouseExited
+    private void NombreUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NombreUsuarioMouseEntered
+        setOscuro(NombreUsuario);
+    }//GEN-LAST:event_NombreUsuarioMouseEntered
+
+    private void NombreUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NombreUsuarioMouseClicked
+        NombreUsuario.setText("");
+    }//GEN-LAST:event_NombreUsuarioMouseClicked
+
+    private void ContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñaKeyTyped
+        if (Contraseña.getText().equals("Asignar Contraseña")) Contraseña.setText("");
+    }//GEN-LAST:event_ContraseñaKeyTyped
+
+    private void ContraseñaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContraseñaMouseExited
+        setClaro(Contraseña);
+    }//GEN-LAST:event_ContraseñaMouseExited
+
+    private void ContraseñaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContraseñaMouseEntered
+        setOscuro(Contraseña);
+    }//GEN-LAST:event_ContraseñaMouseEntered
+
+    private void ContraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContraseñaMouseClicked
+        Contraseña.setText("");
+    }//GEN-LAST:event_ContraseñaMouseClicked
+
+    private void UsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsuarioKeyTyped
+        if (Usuario.getText().equals("Nombre Usuario")) Usuario.setText("");
+    }//GEN-LAST:event_UsuarioKeyTyped
+
+    private void UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsuarioActionPerformed
+
+    private void UsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioMouseExited
+        setClaro(Usuario);
+    }//GEN-LAST:event_UsuarioMouseExited
+
+    private void UsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioMouseEntered
+        setOscuro(Usuario);
+    }//GEN-LAST:event_UsuarioMouseEntered
+
+    private void UsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioMouseClicked
+        Usuario.setText("");
+    }//GEN-LAST:event_UsuarioMouseClicked
+
+    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
+        setClaro(jLabel2);
+    }//GEN-LAST:event_jLabel2MouseExited
+
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+        setOscuro(jLabel2);
+    }//GEN-LAST:event_jLabel2MouseEntered
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         try {
@@ -312,83 +374,35 @@ public class Crear extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
-        jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-    }//GEN-LAST:event_jLabel2MouseEntered
+    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
+        setClaro(jLabel1);
+    }//GEN-LAST:event_jLabel1MouseExited
 
-    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
-        jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-    }//GEN-LAST:event_jLabel2MouseExited
+    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
+        setOscuro(jLabel1);
+    }//GEN-LAST:event_jLabel1MouseEntered
 
-    private void UsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioMouseClicked
-        Usuario.setText("");
-    }//GEN-LAST:event_UsuarioMouseClicked
-
-    private void UsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioMouseEntered
-        Usuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 255, 51)));
-    }//GEN-LAST:event_UsuarioMouseEntered
-
-    private void UsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioMouseExited
-        Usuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-    }//GEN-LAST:event_UsuarioMouseExited
-
-    private void ContraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContraseñaMouseClicked
-        Contraseña.setText("");
-    }//GEN-LAST:event_ContraseñaMouseClicked
-
-    private void ContraseñaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContraseñaMouseEntered
-        Contraseña.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 255, 51)));
-    }//GEN-LAST:event_ContraseñaMouseEntered
-
-    private void ContraseñaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContraseñaMouseExited
-        Contraseña.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-    }//GEN-LAST:event_ContraseñaMouseExited
-
-    private void UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsuarioActionPerformed
-
-    private void NombreUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NombreUsuarioMouseClicked
-        NombreUsuario.setText("");
-    }//GEN-LAST:event_NombreUsuarioMouseClicked
-
-    private void NombreUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NombreUsuarioMouseEntered
-        NombreUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 255, 51)));
-    }//GEN-LAST:event_NombreUsuarioMouseEntered
-
-    private void NombreUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NombreUsuarioMouseExited
-        NombreUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-    }//GEN-LAST:event_NombreUsuarioMouseExited
-
-    private void jComboBox1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseEntered
-        jComboBox1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 255, 51)));
-    }//GEN-LAST:event_jComboBox1MouseEntered
-
-    private void jComboBox1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseExited
-        jComboBox1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 0)));
-    }//GEN-LAST:event_jComboBox1MouseExited
-
-    private void HombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HombreActionPerformed
-        if(Mujer.isSelected()) Mujer.setSelected(false);
-        else if(!Hombre.isSelected()) Mujer.setSelected(true);
-    }//GEN-LAST:event_HombreActionPerformed
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        dispose();
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     private void MujerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MujerActionPerformed
         if(Hombre.isSelected()) Hombre.setSelected(false);
         else if(!Mujer.isSelected()) Hombre.setSelected(true);
     }//GEN-LAST:event_MujerActionPerformed
 
-    private void UsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsuarioKeyTyped
-        if (Usuario.getText().equals("Nombre Usuario")) Usuario.setText("");
-    }//GEN-LAST:event_UsuarioKeyTyped
+    private void HombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HombreActionPerformed
+        if(Mujer.isSelected()) Mujer.setSelected(false);
+        else if(!Hombre.isSelected()) Mujer.setSelected(true);
+    }//GEN-LAST:event_HombreActionPerformed
 
-    private void ContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñaKeyTyped
-        if (Contraseña.getText().equals("Asignar Contraseña")) Contraseña.setText("");
-    }//GEN-LAST:event_ContraseñaKeyTyped
+    private void jComboBox1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseExited
+        jComboBox1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 0)));
+    }//GEN-LAST:event_jComboBox1MouseExited
 
-    private void NombreUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NombreUsuarioKeyTyped
-        if (NombreUsuario.getText().equals("Asignar Nombre")) NombreUsuario.setText("");
-    }//GEN-LAST:event_NombreUsuarioKeyTyped
+    private void jComboBox1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseEntered
+        jComboBox1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 255, 51)));
+    }//GEN-LAST:event_jComboBox1MouseEntered
 
     /**
      * @param args the command line arguments
@@ -438,6 +452,7 @@ public class Crear extends javax.swing.JDialog {
     private javax.swing.JRadioButton Mujer;
     private javax.swing.JTextField NombreUsuario;
     private javax.swing.JTextField Usuario;
+    private restaurante.FondoResto fondoResto1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -448,4 +463,23 @@ public class Crear extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+
+    /*
+        COMPONENTES PARA ENTRAR Y SALIR
+    */
+    private void setOscuro(javax.swing.JLabel label){
+        label.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+    }
+    
+    private void setOscuro(javax.swing.JTextField textField){
+        textField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+    }
+    
+    private void setClaro(javax.swing.JLabel label){
+        label.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
+    }
+    
+    private void setClaro(javax.swing.JTextField textField){
+        textField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
+    }
 }
