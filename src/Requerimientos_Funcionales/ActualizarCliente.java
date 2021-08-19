@@ -5,15 +5,15 @@
  */
 package Requerimientos_Funcionales;
 
+import restaurante.CamposTexto;
+
 /**
  *
  * @author AGUSTIN HERNANDEZ
  */
 public class ActualizarCliente extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ActualizarCliente
-     */
+    CamposTexto txt = new CamposTexto();
     public ActualizarCliente() {
         initComponents();
     }
@@ -325,11 +325,11 @@ public class ActualizarCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_identificacionMouseClicked
 
     private void identificacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_identificacionMouseEntered
-        identificacion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 255, 51)));
+        txt.entrarJTextField(identificacion);
     }//GEN-LAST:event_identificacionMouseEntered
 
     private void identificacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_identificacionMouseExited
-        identificacion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        txt.salirJTextField(identificacion);
     }//GEN-LAST:event_identificacionMouseExited
 
     private void identificacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_identificacionKeyTyped
@@ -337,11 +337,11 @@ public class ActualizarCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_identificacionKeyTyped
 
     private void BuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarMouseEntered
-        Buscar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 255, 51)));
+        txt.salirJLabel(Buscar);
     }//GEN-LAST:event_BuscarMouseEntered
 
     private void BuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarMouseExited
-        Buscar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txt.salirJLabel(Buscar);
     }//GEN-LAST:event_BuscarMouseExited
 
     private void AlturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AlturaMouseClicked
@@ -349,11 +349,11 @@ public class ActualizarCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_AlturaMouseClicked
 
     private void AlturaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AlturaMouseEntered
-        Altura.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 255, 51)));
+        txt.entrarJTextField(Altura);
     }//GEN-LAST:event_AlturaMouseEntered
 
     private void AlturaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AlturaMouseExited
-        Altura.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        txt.salirJTextField(Altura);
     }//GEN-LAST:event_AlturaMouseExited
 
     private void AlturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AlturaKeyTyped
@@ -366,11 +366,11 @@ public class ActualizarCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_hemoglobinaMouseClicked
 
     private void hemoglobinaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hemoglobinaMouseEntered
-        hemoglobina.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 255, 51)));
+        txt.entrarJTextField(hemoglobina);
     }//GEN-LAST:event_hemoglobinaMouseEntered
 
     private void hemoglobinaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hemoglobinaMouseExited
-        hemoglobina.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        txt.salirJTextField(hemoglobina);
     }//GEN-LAST:event_hemoglobinaMouseExited
 
     private void hemoglobinaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_hemoglobinaKeyTyped
@@ -382,11 +382,11 @@ public class ActualizarCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_glucosaMouseClicked
 
     private void glucosaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_glucosaMouseEntered
-        glucosa.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 255, 51)));
+        txt.entrarJTextField(glucosa);
     }//GEN-LAST:event_glucosaMouseEntered
 
     private void glucosaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_glucosaMouseExited
-        glucosa.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        txt.salirJTextField(glucosa);
     }//GEN-LAST:event_glucosaMouseExited
 
     private void glucosaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_glucosaKeyTyped
@@ -398,11 +398,11 @@ public class ActualizarCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_AlergiasMouseClicked
 
     private void AlergiasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AlergiasMouseEntered
-        Alergias.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 255, 51)));
+        txt.entrarJTextField(Alergias);
     }//GEN-LAST:event_AlergiasMouseEntered
 
     private void AlergiasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AlergiasMouseExited
-        Alergias.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        txt.salirJTextField(Alergias);
     }//GEN-LAST:event_AlergiasMouseExited
 
     private void AlergiasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AlergiasKeyTyped
@@ -414,11 +414,11 @@ public class ActualizarCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_PesoMouseClicked
 
     private void PesoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PesoMouseEntered
-        Peso.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 255, 51)));
+        txt.entrarJTextField(Peso);
     }//GEN-LAST:event_PesoMouseEntered
 
     private void PesoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PesoMouseExited
-        Peso.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        txt.salirJTextField(Peso);
     }//GEN-LAST:event_PesoMouseExited
 
     private void PesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PesoKeyTyped
@@ -431,11 +431,11 @@ public class ActualizarCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
-        jLabel4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        txt.entrarJLabel(jLabel6);
     }//GEN-LAST:event_jLabel6MouseEntered
 
     private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
-        jLabel4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txt.salirJLabel(jLabel6);
     }//GEN-LAST:event_jLabel6MouseExited
 
 

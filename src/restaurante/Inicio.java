@@ -8,9 +8,7 @@ import javax.swing.JOptionPane;
  */
 public class Inicio extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Inicio
-     */
+    CamposTexto txt = new CamposTexto();
     public Inicio() {
         initComponents();
         setLocationRelativeTo(null);
@@ -60,6 +58,9 @@ public class Inicio extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jTextField2MouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField2MouseExited(evt);
+            }
         });
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -78,6 +79,9 @@ public class Inicio extends javax.swing.JFrame {
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jTextField3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField3MouseExited(evt);
             }
         });
         jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -240,11 +244,11 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
-        setClaro(jLabel6);
+        txt.salirJLabel(jLabel6);
     }//GEN-LAST:event_jLabel6MouseExited
 
     private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
-        setOscuro(jLabel6);
+        txt.entrarJLabel(jLabel6);
     }//GEN-LAST:event_jLabel6MouseEntered
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
@@ -257,11 +261,11 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
-        setClaro(jLabel5);
+        txt.salirJLabel(jLabel5);
     }//GEN-LAST:event_jLabel5MouseExited
 
     private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
-        setOscuro(jLabel5);
+        txt.entrarJLabel(jLabel5);
     }//GEN-LAST:event_jLabel5MouseEntered
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
@@ -269,11 +273,11 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
-        setClaro(jLabel4);
+        txt.salirJLabel(jLabel4);
     }//GEN-LAST:event_jLabel4MouseExited
 
     private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
-        setOscuro(jLabel4);
+        txt.entrarJLabel(jLabel4);
     }//GEN-LAST:event_jLabel4MouseEntered
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -294,7 +298,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3KeyTyped
 
     private void jTextField3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField3MouseEntered
-        setOscuro(jTextField3);
+        txt.entrarJTextField(jTextField3);
     }//GEN-LAST:event_jTextField3MouseEntered
 
     private void jTextField3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField3MouseClicked
@@ -306,12 +310,20 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2KeyTyped
 
     private void jTextField2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseEntered
-        setOscuro(jTextField2);
+        txt.entrarJTextField(jTextField2);
     }//GEN-LAST:event_jTextField2MouseEntered
 
     private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
         jTextField2.setText("");
     }//GEN-LAST:event_jTextField2MouseClicked
+
+    private void jTextField2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseExited
+        txt.salirJTextField(jTextField2);
+    }//GEN-LAST:event_jTextField2MouseExited
+
+    private void jTextField3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField3MouseExited
+        txt.salirJTextField(jTextField3);
+    }//GEN-LAST:event_jTextField3MouseExited
 
     /**
      * @param args the command line arguments
@@ -361,20 +373,4 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
-
-    /*
-        COMPONENTES PARA ENTRAR Y SALIR
-    */
-    private void setOscuro(javax.swing.JLabel label){
-        label.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-    }
-    
-    private void setOscuro(javax.swing.JTextField textField){
-        textField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-    }
-    
-    private void setClaro(javax.swing.JLabel label){
-        label.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
-    }
-
 }

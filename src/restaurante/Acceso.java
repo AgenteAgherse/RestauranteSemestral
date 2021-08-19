@@ -8,6 +8,8 @@ import Requerimientos_Funcionales.*;
 public class Acceso extends javax.swing.JDialog {
 
     private String usuario = "", contraseña = "";
+    private CamposTexto txt = new CamposTexto();
+    
     public Acceso(java.awt.Frame parent, boolean modal, String usuario, String contraseña) {
         super(parent, modal);
         initComponents();
@@ -103,16 +105,13 @@ public class Acceso extends javax.swing.JDialog {
     }//GEN-LAST:event_SalirMouseClicked
 
     private void SalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalirMouseEntered
-        Salir.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        txt.entrarJLabel(Salir);
     }//GEN-LAST:event_SalirMouseEntered
 
     private void SalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalirMouseExited
-        Salir.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txt.salirJLabel(Salir);
     }//GEN-LAST:event_SalirMouseExited
 
-    /**
-     * @param args the command line arguments
-     */
     public void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
