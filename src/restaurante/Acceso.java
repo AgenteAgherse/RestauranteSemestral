@@ -7,17 +7,22 @@ import Requerimientos_Funcionales.*;
  */
 public class Acceso extends javax.swing.JDialog {
 
-    private String usuario = "", contraseña = "";
+    private String usuario = "", contraseña = "", nombre = "", genero = "";
     private CamposTexto txt = new CamposTexto();
     
-    public Acceso(java.awt.Frame parent, boolean modal, String usuario, String contraseña) {
+    public Acceso(java.awt.Frame parent, boolean modal, String usuario, String contraseña, String nombre, String genero) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
         añadirComponentes(usuario, contraseña);
         this.usuario = usuario;
         this.contraseña = contraseña;
+        this.nombre = nombre;
+        this.genero = genero;
         
+        if (genero.equals("Másculino")) Bienvenida.setText("Bienvenido " + nombre);
+        else if (genero.equals("Femenino")) Bienvenida.setText("Bienvenida " + nombre);
+        else Bienvenida.setText("Bievenide " + nombre);
     }
 
     /**
@@ -31,7 +36,7 @@ public class Acceso extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jLabel1 = new javax.swing.JLabel();
+        Bienvenida = new javax.swing.JLabel();
         Salir = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -39,10 +44,10 @@ public class Acceso extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("Bienvenido/a *Inserte Nombre del Usuario*");
+        Bienvenida.setBackground(new java.awt.Color(0, 0, 0));
+        Bienvenida.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 14)); // NOI18N
+        Bienvenida.setForeground(new java.awt.Color(51, 51, 51));
+        Bienvenida.setText("Bienvenido/a *Inserte Nombre del Usuario*");
 
         Salir.setBackground(new java.awt.Color(0, 0, 0));
         Salir.setFont(new java.awt.Font("Microsoft YaHei", 0, 12)); // NOI18N
@@ -69,7 +74,7 @@ public class Acceso extends javax.swing.JDialog {
             .addComponent(jTabbedPane1)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jLabel1)
+                .addComponent(Bienvenida)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
                 .addComponent(Salir)
                 .addGap(26, 26, 26))
@@ -79,7 +84,7 @@ public class Acceso extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(Bienvenida)
                     .addComponent(Salir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -139,7 +144,7 @@ public class Acceso extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Acceso dialog = new Acceso(new javax.swing.JFrame(), true, usuario, contraseña);
+                Acceso dialog = new Acceso(new javax.swing.JFrame(), true, usuario, contraseña, nombre, genero);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -152,8 +157,8 @@ public class Acceso extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Bienvenida;
     private javax.swing.JLabel Salir;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables

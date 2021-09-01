@@ -1,27 +1,32 @@
 package Requerimientos_Funcionales;
 
 import Clases.Cliente;
-import DatabaseClasses.CRUD;
+import DatabaseClasses.CRUDCliente;
+import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 import restaurante.CamposTexto;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AgregarCliente extends javax.swing.JPanel {
 
-    String ruta = System.getProperty("user.dir") + "\\src\\DatabaseClasses\\BaseDatos.db";
+    String ruta = System.getProperty("user.dir") + "\\src\\DatabaseClasses\\Clientes.txt";
     
     String usuario = "", contraseña = "";
     
-    CRUD opc = new CRUD(ruta);
+    CRUDCliente opc = new CRUDCliente(ruta);
     private CamposTexto txt = new CamposTexto();
     public AgregarCliente(String usuario, String contraseña) {
         initComponents();
         this.usuario = usuario;
         this.contraseña = contraseña;
-        System.out.println(ruta);
     }
 
     @SuppressWarnings("unchecked")
@@ -510,25 +515,28 @@ public class AgregarCliente extends javax.swing.JPanel {
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         Cliente cli;
-        String sql;
-        Date fn = new Date(), fr = new Date();
-        //  try {
             cli = new Cliente();
+        try {
             llenarInfo(cli);
+        } catch (ParseException ex) {
+            Logger.getLogger(AgregarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
             String us = JOptionPane.showInputDialog("Ingrese el usuario del administrador.");
             String pass = JOptionPane.showInputDialog("Ingrese la contraseña del administrador.");
             if (us.equals(usuario) && pass.equals(contraseña)) {
-                //Abrir opción para agregar un nuevo usuario al programa
-                opc.agregar(cli);
-                
-                JOptionPane.showMessageDialog(null, "Usuario creado con éxito.");
+                try {
+                    if (opc.buscarCliente(Long.parseLong(Identificación.getText()))) JOptionPane.showMessageDialog(null, "Persona registrada con anterioridad.");
+                    else{
+                        opc.AgregarCliente(cli);
+                        JOptionPane.showMessageDialog(null, "Usuario creado con éxito.");
+                    }
+                } catch (IOException e) {
+                    JOptionPane.showMessageDialog(null, e.getCause());
+                }
             }
             else{
-                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.");
             }
-        //} catch (Exception e) {
-          //  JOptionPane.showMessageDialog(null, e.getCause());
-        //}
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseEntered
@@ -615,7 +623,7 @@ public class AgregarCliente extends javax.swing.JPanel {
     private javax.swing.JTextField otro;
     // End of variables declaration//GEN-END:variables
 
-    private void llenarInfo(Cliente cli){
+    private void llenarInfo(Cliente cli) throws ParseException{
         cli.setNombre(this.nombre.getText());
         cli.setId(Long.parseLong(Identificación.getText()));
         if (Hombre.isSelected()) { cli.setGenero(Hombre.getText());}
@@ -624,12 +632,10 @@ public class AgregarCliente extends javax.swing.JPanel {
         cli.setAlergias(Alergias.getText());
         cli.setHemoglobina(Integer.parseInt(this.hemoglobina.getText()));
         cli.setFechaCumpleaños(fNacimiento.getDate());
-        cli.setPeso(Double.parseDouble(this.Peso.getText()));
+        cli.setPeso(Integer.parseInt(this.Peso.getText()));
         cli.setAltura(Double.parseDouble(this.Altura.getText()) / 100);
         cli.setGlucosa(Integer.parseInt(this.glucosa.getText()));
-        DateTimeFormatter actual = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        Date fr = new Date();
-        fr.equals(actual.format(LocalDateTime.now()));
-        cli.setFechaRegistro(fr);
+        cli.setIMC(cli.getPeso()/(cli.getAltura() * cli.getAltura()));
     }
+    
 }

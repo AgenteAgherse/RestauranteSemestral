@@ -4,7 +4,7 @@ import java.util.Date;
 public class Cliente extends Persona{
     private Date fecha;
     private String nombre;
-    private double peso;
+    private int peso;
     private double altura;
     private double IMC;
     private int hemoglobina;
@@ -40,11 +40,11 @@ public class Cliente extends Persona{
         this.nombre = nombre;
     }
 
-    public double getPeso() {
+    public int getPeso() {
         return peso;
     }
 
-    public void setPeso(double peso) {
+    public void setPeso(int peso) {
         this.peso = peso;
     }
 

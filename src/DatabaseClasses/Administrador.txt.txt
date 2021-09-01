@@ -1,0 +1,2 @@
+Usuario;Usuario;Contraseña;Másculino;Gerente
+MrAgustin;Agustín Hernández Serpa;Agustin8505;Másculino;Gerente

@@ -1,16 +1,21 @@
 package restaurante;
 
+import Clases.Administrador;
+import DatabaseClasses.CRUDAdministrador;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Crear extends javax.swing.JDialog {
 
-    CamposTexto txt = new CamposTexto();
-    java.awt.Frame padre;
-    public Crear(java.awt.Frame parent, boolean modal) {
+    private CamposTexto txt = new CamposTexto();
+    private java.awt.Frame padre;
+    private CRUDAdministrador admin;
+    public Crear(java.awt.Frame parent, boolean modal, CRUDAdministrador admins) {
         super(parent, modal);
         initComponents();
         padre = parent;
         setLocationRelativeTo(null);
+        admin = admins;
     }
 
     @SuppressWarnings("unchecked")
@@ -44,7 +49,7 @@ public class Crear extends javax.swing.JDialog {
         jComboBox1.setBackground(new java.awt.Color(246, 246, 246));
         jComboBox1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 14)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Cargo 1", "Cargo 2", "Cargo 3", "Cargo 4", "Cargo 5" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Mesero", "Cajero", "Gerente" }));
         jComboBox1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
         jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -359,10 +364,13 @@ public class Crear extends javax.swing.JDialog {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         try {
+            Administrador ad;
             String us = JOptionPane.showInputDialog("Ingrese el usuario del administrador.");
             String pass = JOptionPane.showInputDialog("Ingrese la contraseña del administrador.");
-            if (us.equals("Usuario") && pass.equals("Contraseña")) {
-                //Abrir opción para agregar un nuevo usuario al programa
+            if (admin.buscarAdministrador(us, pass)) {
+                ad = new Administrador();
+                llenarInfo(ad);
+                admin.AgregarAdministrador(ad);
                 JOptionPane.showMessageDialog(null, "Usuario creado con éxito.");
                 dispose();
             }
@@ -476,7 +484,7 @@ public class Crear extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Crear dialog = new Crear(new javax.swing.JFrame(), true);
+                Crear dialog = new Crear(new javax.swing.JFrame(), true, null);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -507,4 +515,15 @@ public class Crear extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField otro;
     // End of variables declaration//GEN-END:variables
+
+    private void llenarInfo(Administrador admin){
+        admin.setNombre(NombreUsuario.getText());
+        admin.setUsuario(Usuario.getText());
+        admin.setContraseña(Contraseña.getText());
+        if (Mujer.isSelected()) admin.setGenero(Mujer.getText());
+        else if (Hombre.isSelected()) admin.setGenero(Hombre.getText());
+        else admin.setGenero(otro.getText());
+        admin.setCargo((String) jComboBox1.getSelectedItem());
+        
+    }
 }

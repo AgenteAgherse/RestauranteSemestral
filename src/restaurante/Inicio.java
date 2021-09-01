@@ -1,21 +1,30 @@
 package restaurante;
 
+import Clases.Administrador;
 import Clases.Cliente;
 import Clases.Persona;
-import DatabaseClasses.CRUD;
+import DatabaseClasses.CRUDAdministrador;
+import java.io.IOException;
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- *
- * @author AGUSTIN HERNANDEZ
- */
 public class Inicio extends javax.swing.JFrame {
 
-    CamposTexto txt = new CamposTexto();
-    public Inicio() {
+    private ArrayList<Administrador> adm;
+    private CamposTexto txt = new CamposTexto();
+    private CRUDAdministrador admin;
+    private String ruta = System.getProperty("user.dir") + "\\src\\DatabaseClasses\\Administrador.txt.txt";
+    public Inicio(){
         initComponents();
         setLocationRelativeTo(null);
-        
+        admin = new CRUDAdministrador(ruta);
+        try {
+            adm = admin.array();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, e.getCause());
+        }
     }
 
     /**
@@ -255,7 +264,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseEntered
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        Crear usuario = new Crear(this, true);
+        Crear usuario = new Crear(this, true, admin);
         setVisible(false);
         usuario.setVisible(true);
         jTextField2.setText("Usuario");
@@ -284,16 +293,24 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseEntered
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        if(true){
             //Poner en caso que se genere como verdadera la acción de acceso.
             String usuario = jTextField2.getText(), contraseña = jTextField3.getText();
-            Acceso entrar = new Acceso(this, true, usuario, contraseña);
-            setVisible(false);
-            entrar.setVisible(true);
-            jTextField2.setText("Usuario");
-            jTextField3.setText("Contraseña");
-            setVisible(true);
-        }        
+            try {
+                if (admin.buscarAdministrador(usuario, contraseña)) {
+                    setVisible(false);
+                    Acceso entrar = new Acceso(this, true, usuario, contraseña, admin.getNombre(), admin.getGenero());
+                    System.out.println("Bienvenido.");
+                    entrar.setVisible(true);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.");
+                }
+                    jTextField2.setText("Usuario");
+                    jTextField3.setText("Contraseña");
+                    setVisible(true);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, e.getCause());
+            }
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
@@ -361,7 +378,8 @@ public class Inicio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inicio().setVisible(true);
+                    new Inicio().setVisible(true);
+                
             }
         });
     }
