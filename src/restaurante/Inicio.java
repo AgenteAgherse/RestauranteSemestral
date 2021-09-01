@@ -1,5 +1,8 @@
 package restaurante;
 
+import Clases.Cliente;
+import Clases.Persona;
+import DatabaseClasses.CRUD;
 import javax.swing.JOptionPane;
 
 /**
@@ -352,6 +355,9 @@ public class Inicio extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        
+       
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

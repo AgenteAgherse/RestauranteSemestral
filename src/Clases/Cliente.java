@@ -9,6 +9,8 @@ public class Cliente extends Persona{
     private double IMC;
     private int hemoglobina;
     private int glucosa;
+    private Date fechaRegistro;
+    private String alergias;
     
     public Cliente(){
         super();
@@ -19,6 +21,7 @@ public class Cliente extends Persona{
         IMC = 0;
         hemoglobina = 0;
         glucosa = 0;
+        alergias = "";
     }
 
     public Date getFecha() {
@@ -76,5 +79,22 @@ public class Cliente extends Persona{
     public void setGlucosa(int glucosa) {
         this.glucosa = glucosa;
     }
+
+    public Date getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(Date fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+
+    public String getAlergias() {
+        return alergias;
+    }
+
+    public void setAlergias(String alergias) {
+        this.alergias = alergias;
+    }
+    
     
 }

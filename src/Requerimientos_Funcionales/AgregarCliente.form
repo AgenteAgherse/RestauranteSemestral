@@ -39,7 +39,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -50,8 +50,20 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="Identificación" max="32767" attributes="0"/>
-                              <Component id="Usuario" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="nombre" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="Hombre" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="Mujer" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Component id="otro" min="-2" pref="132" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -64,13 +76,6 @@
                               <Component id="Alergias" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Hombre" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="Mujer" min="-2" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -82,8 +87,8 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="Peso" max="32767" attributes="0"/>
-                              <Component id="jDateChooser1" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="Peso" pref="157" max="32767" attributes="0"/>
+                              <Component id="fNacimiento" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -94,7 +99,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField3" min="-2" pref="157" max="-2" attributes="0"/>
+                          <Component id="glucosa" min="-2" pref="157" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="182" max="32767" attributes="0"/>
@@ -104,12 +109,12 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fNacimiento" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -123,14 +128,15 @@
                           </Group>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jTextField3" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="glucosa" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="Usuario" min="-2" max="-2" attributes="0"/>
+                              <Component id="nombre" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -145,19 +151,24 @@
                               </Group>
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="otro" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="Alergias" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="hemoglobina" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="hemoglobina" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="50" max="32767" attributes="0"/>
+                  <EmptySpace pref="45" max="32767" attributes="0"/>
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               </Group>
@@ -174,7 +185,7 @@
               <Font name="Microsoft YaHei" size="12" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+              <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/restaurante/images/create user/add_30px.png"/>
@@ -221,16 +232,6 @@
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/restaurante/images/common/drag_gender_neutral_20px.png"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="f6" green="f6" red="f6" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
           </Properties>
         </Component>
@@ -307,7 +308,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="glucosa">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f6" green="f6" red="f6" type="rgb"/>
@@ -326,10 +327,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTextField3MouseClicked"/>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTextField3MouseEntered"/>
-            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTextField3MouseExited"/>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField3KeyTyped"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="glucosaMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="glucosaMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="glucosaMouseExited"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="glucosaKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="Peso">
@@ -439,7 +440,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HombreActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="Usuario">
+        <Component class="javax.swing.JTextField" name="nombre">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f6" green="f6" red="f6" type="rgb"/>
@@ -458,10 +459,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="UsuarioMouseClicked"/>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="UsuarioMouseEntered"/>
-            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="UsuarioMouseExited"/>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="UsuarioKeyTyped"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="nombreMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="nombreMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="nombreMouseExited"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="nombreKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="Mujer">
@@ -479,6 +480,51 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MujerActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="fNacimiento">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f6" green="f6" red="f6" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel12">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Microsoft YaHei UI Light" size="11" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Otro:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="otro">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f6" green="f6" red="f6" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Microsoft YaHei UI Light" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="otroMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="otroMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="otroMouseExited"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="otroKeyTyped"/>
           </Events>
         </Component>
       </SubComponents>
