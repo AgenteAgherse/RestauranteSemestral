@@ -12,7 +12,8 @@ import javax.swing.JOptionPane;
 public class CRUDCliente {    
     private String ruta, separador;
     private File archivo;
-     
+    private String nombre, genero, alergias;
+    
     public CRUDCliente(String ruta){
         this.ruta = ruta;
         this.separador = ";";
@@ -21,6 +22,19 @@ public class CRUDCliente {
     public String getRuta(){
         return ruta;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public String getAlergias() {
+        return alergias;
+    }
+    
     
     private String informacion(Cliente cli){
         return  cli.getNombre()+ separador
@@ -88,6 +102,9 @@ public class CRUDCliente {
         ArrayList<Cliente> busqueda = array();
         for (int i = 0; i < busqueda.size(); i++) {
             if (id == busqueda.get(i).getId()) {
+                nombre = busqueda.get(i).getNombre();
+                genero = busqueda.get(i).getGenero();
+                alergias = busqueda.get(i).getAlergias();
                 condicion = true;
                 break;
             }

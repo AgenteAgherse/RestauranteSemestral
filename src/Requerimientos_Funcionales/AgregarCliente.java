@@ -3,23 +3,17 @@ package Requerimientos_Funcionales;
 import Clases.Cliente;
 import DatabaseClasses.CRUDCliente;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 import javax.swing.JOptionPane;
 import restaurante.CamposTexto;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class AgregarCliente extends javax.swing.JPanel {
 
-    String ruta = System.getProperty("user.dir") + "\\src\\DatabaseClasses\\Clientes.txt";
+    private String ruta = System.getProperty("user.dir") + "\\src\\DatabaseClasses\\Clientes.txt";
     
-    String usuario = "", contraseña = "";
+    private String usuario = "", contraseña = "";
     
     CRUDCliente opc = new CRUDCliente(ruta);
     private CamposTexto txt = new CamposTexto();
@@ -432,7 +426,7 @@ public class AgregarCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_nombreMouseExited
 
     private void nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreKeyTyped
-        if (nombre.getText().equals("Asginar Nombre")) nombre.setText(null);
+        if (nombre.getText().equals("Asignar Nombre")) nombre.setText(null);
     }//GEN-LAST:event_nombreKeyTyped
 
     private void IdentificaciónMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IdentificaciónMouseClicked
@@ -576,7 +570,7 @@ public class AgregarCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_glucosaMouseExited
 
     private void glucosaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_glucosaKeyTyped
-        if (hemoglobina.getText().equals("Niveles Glucosa")) hemoglobina.setText(null);
+        if (glucosa.getText().equals("Niveles Glucosa")) glucosa.setText(null);
     }//GEN-LAST:event_glucosaKeyTyped
 
     private void otroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_otroMouseClicked

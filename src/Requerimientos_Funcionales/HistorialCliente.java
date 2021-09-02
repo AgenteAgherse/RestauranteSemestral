@@ -1,13 +1,33 @@
 package Requerimientos_Funcionales;
 
+import Clases.Cliente;
+import DatabaseClasses.CRUDCliente;
+import DatabaseClasses.Dishes;
+import DatabaseClasses.Platillos;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import restaurante.CamposTexto;
+import javax.swing.table.DefaultTableModel;
 
 public class HistorialCliente extends javax.swing.JPanel {
 
-    CamposTexto txt = new CamposTexto();
-    public HistorialCliente() {
+    private CamposTexto txt = new CamposTexto();
+    private Platillos p = new Platillos();
+    private ArrayList<Dishes> platos = p.getPlatos();
+    private String ruta = System.getProperty("user.dir") + "\\src\\DatabaseClasses\\Clientes.txt";
+    private String usuario = "", contraseña = "";
+    private CRUDCliente clientes = new CRUDCliente(ruta);
+    private boolean actualizar = false;
+    private long id = 0;
+    private DefaultTableModel tabla, platillos;
+    
+    public HistorialCliente(String usuario, String contraseña) {
         initComponents();
-        
+        this.usuario = usuario;
+        this.contraseña = contraseña;
+        tabla = (DefaultTableModel) historial.getModel();
+        platillos = (DefaultTableModel) Platillos.getModel();
     }
 
     @SuppressWarnings("unchecked")
@@ -17,11 +37,11 @@ public class HistorialCliente extends javax.swing.JPanel {
         fondoResto1 = new restaurante.FondoResto();
         jTextField2 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        historial = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        Platillos = new javax.swing.JTable();
         Buscar = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
@@ -48,14 +68,14 @@ public class HistorialCliente extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setBackground(new java.awt.Color(246, 246, 246));
-        jTable1.setForeground(new java.awt.Color(51, 51, 51));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        historial.setBackground(new java.awt.Color(246, 246, 246));
+        historial.setForeground(new java.awt.Color(51, 51, 51));
+        historial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Fecha", "Peso", "Altura", "IMC", "Hemoglobina", "Glucosa"
+                "Actualización", "Peso", "Altura", "IMC", "Hemoglobina", "Glucosa"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -66,11 +86,7 @@ public class HistorialCliente extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(4).setHeaderValue("Hemoglobina");
-            jTable1.getColumnModel().getColumn(5).setHeaderValue("Glucosa");
-        }
+        jScrollPane1.setViewportView(historial);
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 14)); // NOI18N
@@ -82,9 +98,9 @@ public class HistorialCliente extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Platillos Recomendados");
 
-        jTable2.setBackground(new java.awt.Color(246, 246, 246));
-        jTable2.setForeground(new java.awt.Color(51, 51, 51));
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        Platillos.setBackground(new java.awt.Color(246, 246, 246));
+        Platillos.setForeground(new java.awt.Color(51, 51, 51));
+        Platillos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -100,7 +116,7 @@ public class HistorialCliente extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(Platillos);
 
         Buscar.setBackground(new java.awt.Color(0, 0, 0));
         Buscar.setFont(new java.awt.Font("Microsoft YaHei", 0, 12)); // NOI18N
@@ -109,6 +125,9 @@ public class HistorialCliente extends javax.swing.JPanel {
         Buscar.setText("Buscar");
         Buscar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         Buscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BuscarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 BuscarMouseEntered(evt);
             }
@@ -191,16 +210,67 @@ public class HistorialCliente extends javax.swing.JPanel {
         if (jTextField2.getText().equals("Usuario")) jTextField2.setText(null);
     }//GEN-LAST:event_jTextField2KeyTyped
 
+    private void BuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarMouseClicked
+                long id = Long.parseLong(jTextField2.getText());
+        try {
+            if (!clientes.buscarCliente(id)) {
+                JOptionPane.showMessageDialog(null, "Persona sin agregar en la base");
+                actualizar = false;
+            }
+            else{
+                jLabel1.setText("Actualización de Datos de " + clientes.getNombre());
+                actualizar = true;
+                this.id = id;
+                ArrayList<Cliente> persona = clientes.buscarHistorial(id);
+                double calorias = llenarTablaHistorial(persona);
+                llenarTablaPlatillos(calorias/3);
+            }
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }//GEN-LAST:event_BuscarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Buscar;
+    private javax.swing.JTable Platillos;
     private restaurante.FondoResto fondoResto1;
+    private javax.swing.JTable historial;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+
+    private double llenarTablaHistorial(ArrayList<Cliente> per){
+        tabla.setRowCount(per.size());
+        int i = 0;
+        for (Cliente cliente : per) {
+            historial.setValueAt((i+1) + " vez", i, 0);
+            historial.setValueAt(cliente.getPeso(), i, 1);
+            historial.setValueAt(cliente.getAltura(), i, 2);
+            historial.setValueAt(cliente.getIMC(), i, 3);
+            historial.setValueAt(cliente.getHemoglobina(), i, 4);
+            historial.setValueAt(cliente.getGlucosa(), i, 5);
+            i++;
+        }
+        int edad = 10;
+        Cliente cli = per.get(i-1);
+        return 370 + 21.6 * cli.getPeso();
+    }
+    
+    private void llenarTablaPlatillos(double calorias){
+        int i = 0;
+        platillos.setRowCount(5);
+        for (Dishes plato : platos) {
+            if (calorias >= plato.getCalorias()) {
+                Platillos.setValueAt(plato.getNombre(), i, 0);
+                Platillos.setValueAt(plato.getIngredientes(), i, 1);
+                Platillos.setValueAt(plato.getCalorias(), i, 2);
+                Platillos.setValueAt(plato.getPrecio(), i, 3);
+                i++;
+            }
+        }
+    }
 }

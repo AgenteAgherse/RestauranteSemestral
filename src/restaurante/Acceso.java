@@ -166,9 +166,9 @@ public class Acceso extends javax.swing.JDialog {
     private void añadirComponentes(String usuario, String contraseña){
         AgregarCliente addCliente = new AgregarCliente(usuario, contraseña);
         InicioAcceso inicio = new InicioAcceso();
-        HistorialCliente buscar = new HistorialCliente();
+        HistorialCliente buscar = new HistorialCliente(usuario, contraseña);
         RecomendaciónNutricional recomendacion = new RecomendaciónNutricional();
-        ActualizarCliente actualizar = new ActualizarCliente();
+        ActualizarCliente actualizar = new ActualizarCliente(usuario, contraseña);
         jTabbedPane1.addTab("Inicio",inicio);
         jTabbedPane1.addTab("Añadir Clientes",addCliente);
         jTabbedPane1.addTab("Buscar Historial Cliente",buscar);
